@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { IProduct } from "../schema/IProduct";
 
 @Component({
     selector:'pm-products',
@@ -19,7 +20,7 @@ export class ProductListComponent{
         this.showImage=!this.showImage;
     }
 
-    products: any[] =
+    products: IProduct[] =
     [
         {
           "productId": 1,
