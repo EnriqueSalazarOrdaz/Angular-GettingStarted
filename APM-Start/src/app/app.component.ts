@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   //styleUrls:[],
   template:`
     <div><h1>{{pageTitle}}</h1>
-      <div>fist component</div>
+      <pm-products></pm-products>
     </div>
   `
 })
