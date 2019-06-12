@@ -4,7 +4,7 @@ import { IProduct } from "../schema/Product";
 @Component({
     selector:'pm-products',
     templateUrl:'./product-list.component.html',
-    styleUrls:[]
+    styleUrls:[ './product-list.component.css']
 
 })
 
