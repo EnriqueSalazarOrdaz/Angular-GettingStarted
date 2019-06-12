@@ -9,20 +9,42 @@ import { IProduct } from "../schema/Product";
 })
 
 export class ProductListComponent implements OnInit {
+  
+  constructor() {
+    this.filteredProducts = this.products;
+    console.log('In OnInit1');
+  }
+
   ngOnInit(): void {
     console.log('In OnInit');
   }
+   
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLowerCase();
+    return this.products.filter((product: IProduct)=>
+        product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
+    );
+  }
+
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = true;
-  listFilter: string;
 
-
-  toggleImage(): void {
-    this.showImage = !this.showImage;
+  
+  private _listFilter : string;
+  public get listFilter() : string {
+    return this._listFilter;
   }
-
+  public set listFilter(v : string) {
+    this._listFilter = v;
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+  }
+  
+  filteredProducts: IProduct[];
   products: IProduct[] =
     [
       {
