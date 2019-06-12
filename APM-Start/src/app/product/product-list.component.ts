@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IProduct } from "../schema/IProduct";
+import { IProduct } from "../schema/Product";
 
 @Component({
     selector:'pm-products',
