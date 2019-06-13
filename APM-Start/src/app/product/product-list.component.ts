@@ -31,10 +31,17 @@ export class ProductListComponent implements OnInit {
 
   filteredProducts: IProduct[];
   products: IProduct[];
+  errorMessage:string;
 
   ngOnInit(): void {
-    this.products=this.productService.getProducts();
-    this.filteredProducts = this.products;
+    this.productService.getProducts().subscribe(//subscribe to observable
+      products => {
+        this.products = products
+        this.filteredProducts = this.products;
+      },
+      error => this.errorMessage = <any> error
+    )
+    
   }
 
   toggleImage(): void {
