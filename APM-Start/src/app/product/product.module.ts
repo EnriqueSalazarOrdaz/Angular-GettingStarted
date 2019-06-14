@@ -7,6 +7,7 @@ import { StarComponent } from '../shared/star.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail/product-detail.guard';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,11 +15,11 @@ import { ProductDetailGuard } from './product-detail/product-detail.guard';
     ProductListComponent,
     ProductDetailComponent,
     ConvertToSpaces,
-    StarComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
       { path: 'products/:id',
