@@ -3,7 +3,7 @@ import { IProduct } from "../schema/Product";
 import { ProductService } from "./product.service";
 
 @Component({
-  selector: 'pm-products',
+  
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   //providers: [ProductService] //this component injection and is only when u dont register the service at product.service.ts at root injector
@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
-  showImage: boolean = true;
+  showImage: boolean = false;
 
   private _listFilter: string;
   public get listFilter(): string {
