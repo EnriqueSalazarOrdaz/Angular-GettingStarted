@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../schema/Product';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product.service'
+import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pm-product-detail',
@@ -14,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
   errorMsj: string;
 
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {
+  constructor(private route: ActivatedRoute, private productService: ProductService, private router:Router) {
     console.log(this.route.snapshot.paramMap.get('id'));
 
   }
@@ -33,6 +34,10 @@ export class ProductDetailComponent implements OnInit {
       productItem => this.product = productItem,
       error => this.errorMsj = <any>error
     );
+  }
+
+  onBack(){
+    this.router.navigate(['/products']);
   }
 
 }
